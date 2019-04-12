@@ -5,11 +5,11 @@
 </div>
 <hr/>
 
-
+<!--(clickedrecipe)="recipedata(recipeel)"-->
 <app-recipe-item
 *ngFor="let recipeel of recipes"
  [recipe]="recipeel"
- (clickedrecipe)="recipedata(recipeel)"></app-recipe-item>
+ ></app-recipe-item>
 
  <!--  <span *ngIf="name && name!=''" > {{name.name}} {{name.description}}.{{name.imagePath}}</span>> -->
 
