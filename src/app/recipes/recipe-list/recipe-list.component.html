@@ -1,16 +1,15 @@
 <div class="row">
 	<div class="col-xs-12">
-		<button class="btn btn-success">New recipe</button>
+		<button class="btn btn-success" disabled="disabled">New recipe</button>
 	</div>
 </div>
 <hr/>
 
 
-<app-recipe-item 
+<app-recipe-item
 *ngFor="let recipeel of recipes"
  [recipe]="recipeel"
  (clickedrecipe)="recipedata(recipeel)"></app-recipe-item>
- 
+
  <!--  <span *ngIf="name && name!=''" > {{name.name}} {{name.description}}.{{name.imagePath}}</span>> -->
 
- 

@@ -15,7 +15,7 @@ export class ShoppingEditComponent implements OnInit {
 
  // shoppingitem= new Array();
     public Ingredientdata:Ingredient;
-
+     classswitch=false;
   constructor() { }
 
   ngOnInit() {
@@ -23,6 +23,7 @@ export class ShoppingEditComponent implements OnInit {
   addToList(){
     console.log(this.name.nativeElement.value);
     console.log(this.amount.nativeElement.value);
+     this.classswitch=!this.classswitch;
     //console.log(this.shoppingitem.length+1);
      this.Ingredientdata=new Ingredient(this.name.nativeElement.value,this.amount.nativeElement.value);
     //length=this.shoppingitem.length+1;

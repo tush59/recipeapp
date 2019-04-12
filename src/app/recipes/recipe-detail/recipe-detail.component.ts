@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Recipes} from '../recipe.model';
+import {DropdownDirective} from '../../shared/dropdown.directive';
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
@@ -11,6 +12,6 @@ export class RecipeDetailComponent implements OnInit {
 
   ngOnInit() {
   }
- 
+
 
 }
