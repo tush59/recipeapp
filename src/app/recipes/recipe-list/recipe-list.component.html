@@ -7,8 +7,8 @@
 
 <!--(clickedrecipe)="recipedata(recipeel)"-->
 <app-recipe-item
-*ngFor="let recipeel of recipes"
- [recipe]="recipeel"
+*ngFor="let recipeel of recipes;let i=index"
+ [recipe]="recipeel" [index]="i"
  ></app-recipe-item>
 
  <!--  <span *ngIf="name && name!=''" > {{name.name}} {{name.description}}.{{name.imagePath}}</span>> -->

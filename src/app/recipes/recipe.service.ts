@@ -25,6 +25,10 @@ export class RecipeService{
       ]),
     ];
 
+    getRecipe(index: number){
+          return this.recipes[index];
+    }
+
     onSelect(recipe :Recipes){
 
         this.recipeSeleted.emit(recipe);
