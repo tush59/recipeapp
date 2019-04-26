@@ -14,6 +14,7 @@ import { ShoppingListService } from './shopping-list/shoppinglist.service';
 import { AppRoutingModule } from './app-routing.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 
 
@@ -32,6 +33,7 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
     DropdownDirective,
     PagenotfoundComponent,
     RecipeStartComponent,
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,

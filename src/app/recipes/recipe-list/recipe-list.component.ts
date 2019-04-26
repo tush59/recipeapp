@@ -1,6 +1,7 @@
 import { Component, OnInit,EventEmitter,Output} from '@angular/core';
 import {Recipes} from '../recipe.model';
 import { RecipeService } from '../recipe.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -15,7 +16,7 @@ export class RecipeListComponent implements OnInit {
 
   // ];
    @Output() recipedetail: EventEmitter<Recipes>= new EventEmitter();
-    constructor(private recipeService: RecipeService){
+    constructor(private recipeService: RecipeService,private route:ActivatedRoute, private router:Router){
 
     }
 
@@ -34,6 +35,8 @@ export class RecipeListComponent implements OnInit {
 
   numbers:number[]=[1,2,3];
 
-
+  onNewRecipe(){
+        this.router.navigate(['new'],{relativeTo:this.route});
+  }
 
 }
