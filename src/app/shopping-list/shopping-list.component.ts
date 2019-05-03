@@ -19,8 +19,13 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit() {
     this.ingredients=this.slService.getIngredients();
     this.slService.ingredientsChanged.subscribe((addedIngredient: Ingredient[])=>{
-      //console.log("here to push");
+
             this.ingredients=(addedIngredient);
+    });
+
+    this.slService.ingredientChangedSubject.subscribe((totalIngredient : Ingredient[])=>{
+        this.ingredients=totalIngredient;
+
     });
 
     // this.slService.toshoppinglist.subscribe((ingds: Ingredient[])=>{
@@ -41,6 +46,9 @@ export class ShoppingListComponent implements OnInit {
   //     console.log(data);
   // }
 
+  onItemEdit(id: number){
+    this.slService.idSelected.next(id);
+  }
 
   clearIngredientList(){
     //console.log('here');

@@ -1,6 +1,8 @@
 import { Component, OnInit,ViewChild, ElementRef, Output,EventEmitter } from '@angular/core';
 import {Ingredient} from '../../shared/ingredients.model';
 import { ShoppingListService } from '../shoppinglist.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-shopping-edit',
@@ -12,16 +14,30 @@ export class ShoppingEditComponent implements OnInit {
   @ViewChild('name') name:ElementRef;
   @ViewChild('amount') amount:ElementRef;
  // @Output() shoppingitems:EventEmitter<Ingredient>= new EventEmitter();
-  @Output() clearlist:EventEmitter<void>= new EventEmitter();
+   @ViewChild('aform') aform: NgForm;
+   @Output() clearlist:EventEmitter<void>= new EventEmitter();
 
  // shoppingitem= new Array();
     public Ingredientdata:Ingredient;
+    editMode:boolean =false;
+    editIndex:number =-1;
      classswitch=false;
+
      constructor(private slservice:ShoppingListService) {
 
       }
 
   ngOnInit() {
+    this.slservice.idSelected.subscribe((id: number)=>{
+      let temp: Ingredient;
+      temp=this.slservice.getIngredientById(id);
+      this.editIndex=id;
+      this.editMode=true;
+      this.aform.setValue({
+          name: temp.name,
+          amount: temp.amount
+      });
+     });
   }
   addToList(){
     console.log(this.name.nativeElement.value);
@@ -37,7 +53,25 @@ export class ShoppingEditComponent implements OnInit {
   }
   clearList(){
     this.clearlist.emit();
+    this.editMode=false;
+    this.aform.reset();
+  }
+  onAddItem(form:NgForm){
+    let value =form.value;
+    this.Ingredientdata=new Ingredient(value.name,value.amount);
+    if(this.editMode){
+        this.slservice.updateIngredient(this.editIndex,this.Ingredientdata);
+    }else{
+        this.slservice.addIngredient(this.Ingredientdata);
+    }
+    this.editMode=false;
+    form.reset();
   }
 
-
+  deleteItem(){
+    console.log(this.editIndex);
+    this.slservice.deleteItem(this.editIndex);
+    this.editMode=false;
+    this.aform.reset();
+  }
 }
