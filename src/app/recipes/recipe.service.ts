@@ -12,6 +12,7 @@ export class RecipeService{
     ];
 
     onSelect(recipe :Recipes){
+      console.log("emitted");
         this.recipeSeleted.emit(recipe);
     }
 

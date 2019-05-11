@@ -15,11 +15,12 @@ export class RecipeItemComponent implements OnInit {
    }
 
   thisWasClicked(name:string){
-     // console.log(name);
+      // console.log(name);
       this.clickedrecipe.emit(name);
   }
 
   OnSelect(){
+    console.log("emitted");
     this.receipeService.recipeSeleted.emit(this.recipe);
 
   }
