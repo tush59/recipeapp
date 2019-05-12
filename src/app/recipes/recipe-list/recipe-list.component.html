@@ -1,14 +1,15 @@
 <div class="row">
 	<div class="col-xs-12">
-		<button class="btn btn-success" disabled="disabled">New recipe</button>
+    <!-- [routerLink]="['new']" -->
+		<button class="btn btn-success" (click)="onNewRecipe()"  routerLinkActive="router-link-active"  >New recipe</button>
 	</div>
 </div>
 <hr/>
 
 <!--(clickedrecipe)="recipedata(recipeel)"-->
 <app-recipe-item
-*ngFor="let recipeel of recipes"
- [recipe]="recipeel"
+*ngFor="let recipeel of recipes;let i=index"
+ [recipe]="recipeel" [index]="i"
  ></app-recipe-item>
 
  <!--  <span *ngIf="name && name!=''" > {{name.name}} {{name.description}}.{{name.imagePath}}</span>> -->

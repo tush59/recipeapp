@@ -1,22 +1,38 @@
 <div class="row">
 	<div class="col-xs-12">
-		<form>
+		<form (ngSubmit)="onAddItem(aform)" #aform="ngForm">
 			<div class="row">
 				<div class="col-sm-5 form-group">
 					<label for="name">						Name </label>
-						<input type="text" name="name" id="name" #name class="form-control"/>
+            <input type="text"
+             name="name"
+              id="name"
+               #name
+               class="form-control"
+               ngModel
+               required />
 				</div>
 				<div class="col-sm-2 form-group">
 					<label for="amount"> Amount </label>
-						<input type="number" id="amount" name="amount" #amount class="form-control"/>
+            <input
+             type="number"
+              id="amount"
+               name="amount"
+                #amount
+                class="form-control"
+                ngModel
+                required
+                />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 btn-toolbar">
           <!––[ngClass]="classswitch==true?' btn btn-default': 'btn btn-success'" ––>
-					<button class="btn btn-success"      type="button" (click)="addToList()" >Add</button>
-					<button class="btn btn-danger" type="button" disabled="disabled">Delete</button>
-					<button class="btn btn-primary" type="button" (click)="clearList()">Clear</button>
+          <!-- (click)="addToList()" -->
+          <!-- (click)="clearList()" -->
+					<button class="btn btn-success" [disabled]="!aform.valid"   type="submit"  >{{ editMode? 'Edit':'Add' }}</button>
+					<button class="btn btn-danger" type="button" (click)="deleteItem()" [disabled]="editMode?false:true">Delete</button>
+					<button class="btn btn-primary" (click)="clearList()" type="button" >Clear</button>
         </div>
 
 			</div>
