@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { HoverdirectiveDirective } from './directives/hoverdirective.directive';
 
 
 
@@ -34,6 +35,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     PagenotfoundComponent,
     RecipeStartComponent,
     RecipeEditComponent,
+    HoverdirectiveDirective,
 
   ],
   imports: [

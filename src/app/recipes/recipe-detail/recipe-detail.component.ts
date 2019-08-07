@@ -31,6 +31,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onEditRecipe(){
+    console.log("in the edit recipe section");
         //this.router.navigate(['../',this.id,'edit'],{relativeTo:this.route});
         this.router.navigate(['edit'],{relativeTo:this.route});
   }
@@ -38,6 +39,14 @@ export class RecipeDetailComponent implements OnInit {
   onSelect(){
 
     this.slservice.addToShoppingList(this.recipe.ingredients);
+  }
+
+
+  deleteRecipe(){
+   // console.log("index is"+index);
+
+    this.recipeService.deleteRecipe(this.id);
+
   }
 
 }

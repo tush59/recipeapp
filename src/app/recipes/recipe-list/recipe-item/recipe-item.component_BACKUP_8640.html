@@ -1,0 +1,20 @@
+<div class="row">
+	<div  class="col-xs-12" >
+<<<<<<< HEAD
+
+		<a href="#" (click)="OnSelect(recipe)"  class="list-group-item clearfix">
+=======
+    <!-- (click)="OnSelect(recipe.name)"-->
+		<a  [routerLink]="[index]" routerLinkActive="router-link-active active"     class="list-group-item clearfix">
+>>>>>>> 5f4ed8ae8383b8889770d7ee5ed73b6c5865e303
+			<div class="pull-left">
+				<h4 class="list-group-item-heading">{{recipe.name}} </h4>
+				<p class="list-group-item-text">  {{recipe.description}} </p>
+			</div>
+			<span class="pull-right">
+			 <img src="{{recipe.imagePath}}" alt="recipe image" class="img-reponsive" style="max-height:50px;">
+			</span>
+
+		</a>
+	</div>
+</div>

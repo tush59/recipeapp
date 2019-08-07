@@ -2,12 +2,10 @@ import {Recipes} from './recipe.model';
 import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredients.model';
 
-import { Subject } from 'rxjs';
-
 export class RecipeService{
 
     recipeSeleted: EventEmitter<Recipes>= new EventEmitter();
-    recipeUpdated = new Subject();
+
    private  recipes : Recipes[] = [
     new Recipes('first receipe',
       'recipe description'
@@ -32,6 +30,11 @@ export class RecipeService{
     }
 
     onSelect(recipe :Recipes){
+<<<<<<< HEAD
+      console.log("emitted");
+=======
+
+>>>>>>> 5f4ed8ae8383b8889770d7ee5ed73b6c5865e303
         this.recipeSeleted.emit(recipe);
     }
 
@@ -39,24 +42,7 @@ export class RecipeService{
         return this.recipes.slice();
     }
 
-    addRecipe(recipe : Recipes){
-          this.recipes.push(recipe);
-                this.recipeUpdated.next(this.recipes.slice());
 
-    }
-
-    updateRecipe(index:number ,recipe:Recipes){
-      this.recipes[index]=recipe;
-      this.recipeUpdated.next(this.recipes.slice());
-    }
-
-
-    deleteRecipe(index:number){
-
-      this.recipes.splice(index,1);
-      this.recipeUpdated.next(this.recipes.slice());
-
-    }
 
 }
 
