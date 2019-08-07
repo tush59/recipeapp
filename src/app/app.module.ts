@@ -15,7 +15,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-
+import { SearchfilterPipe } from './pipes/searchfilter.pipe';
+import { RecipeService } from './recipes/recipe.service';
+import { HttpModule } from '@angular/http';
 
 
 
@@ -34,15 +36,18 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     PagenotfoundComponent,
     RecipeStartComponent,
     RecipeEditComponent,
+    SearchfilterPipe,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule,
+
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService,RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

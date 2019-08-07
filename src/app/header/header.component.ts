@@ -1,4 +1,5 @@
 import {Component/*, EventEmitter,Output */} from '@angular/core';
+import { RecipeService } from '../recipes/recipe.service';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +11,13 @@ export class HeaderComponent {
   //   this.selectedFeature.emit(feature);
   // }
 
+  constructor(private recipeservice: RecipeService){
+
+  }
+
+  saveData(){
+    this.recipeservice.saveRecipeOnServer().subscribe((res)=>{
+          console.log(res.json());
+    });
+  }
 }

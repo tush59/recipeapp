@@ -1,13 +1,15 @@
 <div class="row">
 <div class="col-xs-10">
+  <input type="text" class="search form-control" [(ngModel)]="searchvalue"> <br/>
     <!---(shoppingitems)="addItem($event)"-->
 	<app-shopping-edit  (clearlist)="clearIngredientList($event)"></app-shopping-edit>
 	<hr/>
 	<p>The shopping list</p>
 	<ul class="list-group">
-		<a  class="list-group-item"  (click)="onItemEdit(i)"  style="cursor:pointer" *ngFor="let ingredient of ingredients; let i= index">
+		<a  class="list-group-item"  (click)="onItemEdit(i)"  style="cursor:pointer" *ngFor="let ingredient of ingredients| searchfilter:searchvalue:'name'; let i= index ">
 		{{i+1}}.	{{ingredient.name}} ({{ingredient.amount}})
-		</a>
+    </a>
+    {{asyncpipedemo | async}}
 	</ul>
 </div>
 </div>
