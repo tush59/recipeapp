@@ -18,8 +18,11 @@ export class RecipesComponent implements OnInit {
   ngOnInit() {
         this.recipeservice.recipeSeleted.subscribe(
             (recipe:Recipes)=>{
+<<<<<<< HEAD
                 console.log("recived");
+=======
               console.log("here");
+>>>>>>> 5f4ed8ae8383b8889770d7ee5ed73b6c5865e303
                     this.detailsreceived=recipe;
           }
         );

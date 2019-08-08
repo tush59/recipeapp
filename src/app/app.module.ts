@@ -15,9 +15,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+
+import { HoverdirectiveDirective } from './directives/hoverdirective.directive';
+
+
 import { SearchfilterPipe } from './pipes/searchfilter.pipe';
 import { RecipeService } from './recipes/recipe.service';
 import { HttpModule } from '@angular/http';
+
 
 
 
@@ -36,7 +41,11 @@ import { HttpModule } from '@angular/http';
     PagenotfoundComponent,
     RecipeStartComponent,
     RecipeEditComponent,
+
+    HoverdirectiveDirective,
+
     SearchfilterPipe,
+
 
   ],
   imports: [
