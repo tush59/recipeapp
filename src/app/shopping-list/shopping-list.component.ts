@@ -12,6 +12,12 @@ export class ShoppingListComponent implements OnInit {
   // 			new Ingredient('oranges',10),
   // ];
   ingredients:Ingredient[];
+  searchvalue = '';
+  asyncpipedemo=new Promise ((resolve,reject)=>{
+        setTimeout(() => {
+              resolve('asyncpipedemo');
+        }, 2000);
+  });
   constructor(private slService:ShoppingListService) {
 
    }

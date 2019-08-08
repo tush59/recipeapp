@@ -1,8 +1,13 @@
 import {Recipes} from './recipe.model';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredients.model';
 
+
 import { Subject } from 'rxjs';
+
+
+import { Http,Headers } from '@angular/http';
+@Injectable()
 
 export class RecipeService{
 
@@ -27,6 +32,10 @@ export class RecipeService{
       ]),
     ];
 
+    constructor(private http: Http){
+
+    }
+
     getRecipe(index: number){
           return this.recipes[index];
     }
@@ -39,9 +48,18 @@ export class RecipeService{
         return this.recipes.slice();
     }
 
+
     addRecipe(recipe : Recipes){
           this.recipes.push(recipe);
                 this.recipeUpdated.next(this.recipes.slice());
+
+    saveRecipeOnServer(){
+      let headers= new Headers({'Access-Control-Allow-Origin':'*','abc':'bcs'});
+     // headers=Headers.append('Access-Control-Allow-Origin','*');
+
+      return  this.http.post('https://apibackend-bb8bb.firebaseio.com/data.json',this.getRecipes(),{headers});
+    }
+
 
     }
 

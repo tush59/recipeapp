@@ -8,7 +8,7 @@ export class DropdownDirective implements OnInit{
   @HostBinding('class.open') togglevar:boolean=false;
 
   constructor(private elRef: ElementRef, private renderer : Renderer){
-      console.log("here");
+
   }
     ngOnInit(){
 
