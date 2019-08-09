@@ -20,12 +20,16 @@ export class RecipeListComponent implements OnInit {
 
     }
 
-
-  ngOnInit() {
-
+    ngOnInit() {
     this.recipeService.recipeUpdated.subscribe((recipe: Recipes[] )=> {
+        console.log("event after get request received");
                   this.recipes=recipe;
     });
+
+    this.recipeService.newsubject.subscribe((recipe: Recipes[] )=> {
+      console.log("event after get request received");
+                this.recipes=recipe;
+  });
 
 
 
@@ -33,6 +37,8 @@ export class RecipeListComponent implements OnInit {
 
    this.recipes=this.recipeService.getRecipes();
   }
+
+
 
  // name:Recipes[];
   //recipedata(data){

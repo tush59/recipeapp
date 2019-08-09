@@ -20,4 +20,8 @@ export class HeaderComponent {
           console.log(res.json());
     });
   }
+
+  fetchData(){
+      this.recipeservice.getRecipesfromServer();
+  }
 }
