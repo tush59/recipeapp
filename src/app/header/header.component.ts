@@ -16,7 +16,7 @@ export class HeaderComponent {
   }
 
   saveData(){
-    this.recipeservice.saveRecipeOnServer().subscribe((res)=>{
+    this.recipeservice.saveRecipeOnServer().then((res)=>{
           console.log(res.json());
     });
   }

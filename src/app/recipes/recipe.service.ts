@@ -55,12 +55,19 @@ export class RecipeService {
           console.log(this.recipes);
           this.recipeUpdated.next(this.recipes.slice());
     }
-    saveRecipeOnServer() {
+    async saveRecipeOnServer() {
+      await this.deletefromserver().then(arg => {
+        console.log('deleted');
+        console.log(arg);
+  });
       const headers = new Headers({'Access-Control-Allow-Origin': '*'});
-      return  this.http.post('https://apibackend-bb8bb.firebaseio.com/data.json', this.getRecipes(), {headers});
+      console.log('after await');
+      return  this.http.post('https://apibackend-bb8bb.firebaseio.com/data.json', this.getRecipes(), {headers}).toPromise();
     }
 
     getRecipesfromServer() {
+
+
       this.http.get('https://apibackend-bb8bb.firebaseio.com/data.json').subscribe(
         (res) => {
           const arr: any = res.json();
@@ -96,6 +103,10 @@ export class RecipeService {
       this.recipes.splice(index, 1);
       this.recipeUpdated.next(this.recipes.slice());
 
+    }
+
+     deletefromserver(){
+      return  this.http.delete('https://apibackend-bb8bb.firebaseio.com/data.json').toPromise();
     }
 
 }
