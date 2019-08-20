@@ -79,6 +79,7 @@ export class RecipeService {
           console.log(keysArray);
           i=0;
           console.log(arr[keysArray[i++]]);
+          this.recipes=[];
           for(let key of keysArray){
               for (let objct of arr[key]){
                 this.recipes.push(objct);
