@@ -133,5 +133,10 @@
       }
     }
   },
-  "defaultProject": "recipeapp"
+  "defaultProject": "recipeapp",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
