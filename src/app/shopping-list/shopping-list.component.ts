@@ -56,7 +56,7 @@ export class ShoppingListComponent implements OnInit {
     this.slService.idSelected.next(id);
   }
 
-  clearIngredientList(){
+  clearIngredientList($event : any){
     //console.log('here');
     this.slService.clearIngredients();
     this.ingredients=[];

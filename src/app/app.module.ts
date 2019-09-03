@@ -41,7 +41,6 @@ import { HttpModule } from '@angular/http';
     PagenotfoundComponent,
     RecipeStartComponent,
     RecipeEditComponent,
-
     HoverdirectiveDirective,
 
     SearchfilterPipe,
