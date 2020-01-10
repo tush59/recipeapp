@@ -1,0 +1,25 @@
+For page speed issue in Mobile, we are struggling sometimes, in order to overcome this issue, please follow below very easy steps before make website live -
+
+1. Implement rel="noopener" after the <a href target ="_blank">
+
+2. In your lighthouse report, If you find any issue related to color or contrast ratio, then press ctrl+shift+J then click on that particular problamatic text and then left side - go to color option under elements, select above 2.2 contast ratio for 14 or 16px character, copy that color code and implement in that text code.
+
+3. In your wordpress, install W3 Cache and hummingbird plugin, In W3C Cache - you can mark minify css, js and HTML one by one and then test the website all okay or not. If not, then uncheck again, click on purge cache and run. In humminbird - please check that settings are appropriate or not.
+
+4. In Lighthouse report - If you have received Discernible Names in link then go to code, and after the <a ahref> tag closed please put the name of that link like - "Go to Service Page" and then closed the </a>
+
+5. Make sure that your critical and major scripts (css and JS) already implement "Async" or "Defer" tag like - <script src="https://sitename/wp-content_new/themes/clutches/js/html5.js" defer></script>
+
+6. CSS always working as a render blocking resources, in order to optimise this - In chrome, press - ctrl + shift + J and then click on Performance tab, record the performance and filter out green and red label. All green labeled scripts and stlesheet, which is critical resources you should put under Head section with <link rel="preload" code. 
+Like for script - <link rel="preload" href="/_next/static/b4P_d6DXfSq_jD2mtTGOx/pages/index.js" as="script"/>
+Like for for Stylesheet - <link rel="stylesheet" href="/_next/static/css/commons.8cea36e3.chunk.css"/>
+
+7.  If your site is using iframe then please put the iframe title too, before the link. like - <iframe title = "-----" src ="----"
+
+8. If your website contain any third party link (like - youtube, facebook), then please reduce network payload time, by adding below rules in head section -
+
+<link rel="dns-prefetch" href="https://www.youtube.com">
+<link rel="preconnect" href="https://www.youtube.com">
+	
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
